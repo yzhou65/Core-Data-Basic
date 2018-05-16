@@ -25,7 +25,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var addButton: UIButton!
     @IBOutlet weak var personsTableView: UITableView!
     
-    fileprivate lazy var persons = CoreDataManager.shared.getAllPersons()
+    fileprivate lazy var persons = CoreDataManager.shared().getAllPersons()
     
 
     override func viewDidLoad() {
@@ -74,13 +74,11 @@ extension ViewController {
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             let p = self.persons[indexPath.row]
-            CoreDataManager.shared.delete(person: p)
+            CoreDataManager.shared().delete(person: p)
             self.persons.remove(at: indexPath.row)
             self.personsTableView.reloadData()
         }
     }
-    
-    
 }
 
 
@@ -94,13 +92,14 @@ extension ViewController {
         guard let age16 = Int16(age.trimmingCharacters(in: CharacterSet.whitespaces)) else { return  }
         
         // add new person
-        let p = CoreDataManager.shared.addPerson(with: name.trimmingCharacters(in: CharacterSet.whitespaces), age: age16)
+        let p = CoreDataManager.shared().addPerson(with: name.trimmingCharacters(in: CharacterSet.whitespaces), age: age16)
         self.persons.append(p)
         self.personsTableView.reloadData()
     }
     
     @IBAction func refresh(_ sender: UIButton) {
         self.view.endEditing(true)
+        self.persons = CoreDataManager.shared().getAllPersons()
         self.personsTableView.reloadData()
     }
 }

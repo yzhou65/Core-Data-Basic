@@ -12,8 +12,11 @@ import CoreData
 class CoreDataManager: NSObject {
     // MARK: - Singleton
     private override init() {}
-    static let shared = CoreDataManager()
+    private static let manager = CoreDataManager()
     
+    class func shared() -> CoreDataManager {
+        return CoreDataManager.manager
+    }
     
     // MARK: - Data operations
     
@@ -81,7 +84,7 @@ class CoreDataManager: NSObject {
         
         do {
             let persons = try self.context.fetch(fetchRequest)
-            for (i, p) in persons.enumerated() {
+            for p in persons {
                 // update persons
                 p.name = newName
                 p.age = newAge
