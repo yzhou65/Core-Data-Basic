@@ -13,9 +13,13 @@
 		8A89015920ABD02F0057C0C1 /* CoreDataBasic.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 8A89015720ABD02F0057C0C1 /* CoreDataBasic.xcdatamodeld */; };
 		8A89015B20ABD02F0057C0C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8A89015A20ABD02F0057C0C1 /* Assets.xcassets */; };
 		8A89015E20ABD02F0057C0C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A89015C20ABD02F0057C0C1 /* LaunchScreen.storyboard */; };
+		8A89016F20ABD7620057C0C1 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A89016E20ABD7620057C0C1 /* CoreDataManager.swift */; };
+		B9BA39FA73E2F65A48F7093A /* Pods_CoreDataBasic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2059DBEACB7E75C54E9B0255 /* Pods_CoreDataBasic.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2059DBEACB7E75C54E9B0255 /* Pods_CoreDataBasic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_CoreDataBasic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F4F9AEA6E3B8DFF77B3E548 /* Pods-CoreDataBasic.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataBasic.release.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataBasic/Pods-CoreDataBasic.release.xcconfig"; sourceTree = "<group>"; };
 		8A89014D20ABD02F0057C0C1 /* CoreDataBasic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataBasic.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A89015020ABD02F0057C0C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A89015220ABD02F0057C0C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +28,8 @@
 		8A89015A20ABD02F0057C0C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8A89015D20ABD02F0057C0C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8A89015F20ABD02F0057C0C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8A89016E20ABD7620057C0C1 /* CoreDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
+		8C6FDDBFB5858866455E0D2D /* Pods-CoreDataBasic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-CoreDataBasic.debug.xcconfig"; path = "Pods/Target Support Files/Pods-CoreDataBasic/Pods-CoreDataBasic.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +37,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9BA39FA73E2F65A48F7093A /* Pods_CoreDataBasic.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0DBB06592262B91CAA33440F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2059DBEACB7E75C54E9B0255 /* Pods_CoreDataBasic.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		51E15D513C787F2DD3E4AE88 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				8C6FDDBFB5858866455E0D2D /* Pods-CoreDataBasic.debug.xcconfig */,
+				5F4F9AEA6E3B8DFF77B3E548 /* Pods-CoreDataBasic.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		8A89014420ABD02F0057C0C1 = {
 			isa = PBXGroup;
 			children = (
 				8A89014F20ABD02F0057C0C1 /* CoreDataBasic */,
 				8A89014E20ABD02F0057C0C1 /* Products */,
+				51E15D513C787F2DD3E4AE88 /* Pods */,
+				0DBB06592262B91CAA33440F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +82,24 @@
 		8A89014F20ABD02F0057C0C1 /* CoreDataBasic */ = {
 			isa = PBXGroup;
 			children = (
+				8A89016D20ABD7420057C0C1 /* CoreData */,
 				8A89015020ABD02F0057C0C1 /* AppDelegate.swift */,
 				8A89015220ABD02F0057C0C1 /* ViewController.swift */,
 				8A89015420ABD02F0057C0C1 /* Main.storyboard */,
 				8A89015A20ABD02F0057C0C1 /* Assets.xcassets */,
 				8A89015C20ABD02F0057C0C1 /* LaunchScreen.storyboard */,
 				8A89015F20ABD02F0057C0C1 /* Info.plist */,
-				8A89015720ABD02F0057C0C1 /* CoreDataBasic.xcdatamodeld */,
 			);
 			path = CoreDataBasic;
+			sourceTree = "<group>";
+		};
+		8A89016D20ABD7420057C0C1 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				8A89015720ABD02F0057C0C1 /* CoreDataBasic.xcdatamodeld */,
+				8A89016E20ABD7620057C0C1 /* CoreDataManager.swift */,
+			);
+			name = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +109,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8A89016220ABD02F0057C0C1 /* Build configuration list for PBXNativeTarget "CoreDataBasic" */;
 			buildPhases = (
+				B44AAD27673FB078C6CBABD9 /* [CP] Check Pods Manifest.lock */,
 				8A89014920ABD02F0057C0C1 /* Sources */,
 				8A89014A20ABD02F0057C0C1 /* Frameworks */,
 				8A89014B20ABD02F0057C0C1 /* Resources */,
+				D82BE57017D1534563E9809A /* [CP] Embed Pods Frameworks */,
+				FA7F74599C10B361F77742A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -134,6 +172,54 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B44AAD27673FB078C6CBABD9 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		D82BE57017D1534563E9809A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataBasic/Pods-CoreDataBasic-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FA7F74599C10B361F77742A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-CoreDataBasic/Pods-CoreDataBasic-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8A89014920ABD02F0057C0C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -141,6 +227,7 @@
 			files = (
 				8A89015320ABD02F0057C0C1 /* ViewController.swift in Sources */,
 				8A89015120ABD02F0057C0C1 /* AppDelegate.swift in Sources */,
+				8A89016F20ABD7620057C0C1 /* CoreDataManager.swift in Sources */,
 				8A89015920ABD02F0057C0C1 /* CoreDataBasic.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -262,6 +349,7 @@
 		};
 		8A89016320ABD02F0057C0C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C6FDDBFB5858866455E0D2D /* Pods-CoreDataBasic.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CoreDataBasic/Info.plist;
@@ -274,6 +362,7 @@
 		};
 		8A89016420ABD02F0057C0C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5F4F9AEA6E3B8DFF77B3E548 /* Pods-CoreDataBasic.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = CoreDataBasic/Info.plist;

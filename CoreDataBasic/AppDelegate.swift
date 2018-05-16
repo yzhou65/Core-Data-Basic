@@ -45,6 +45,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     // MARK: - Core Data stack
+    lazy var managedObjectModel: NSManagedObjectModel = {
+        // forResource: name of the CoreDataBasic.xcdatamodeld file, extension is always momd
+        let modelURL = Bundle.main.url(forResource: "CoreDataBasic", withExtension: "momd")
+        let momd = NSManagedObjectModel(contentsOf: modelURL!)
+        return momd!
+    }()
+    
+    
+    lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
+        let psc: NSPersistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
+        let sqliteURL: URL = self.documentDir.appendingPathComponent("Model.sqlite")
+        let options = [NSMigratePersistentStoresAutomaticallyOption: true, NSInferMappingModelAutomaticallyOption: true]
+        var failureReason = "There was an error creating or loading the application's saved data."
+        
+        do {
+            try psc.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: sqliteURL, options: options)
+        } catch {
+            // report errors
+            var dict = [String: Any]()
+            dict[NSLocalizedDescriptionKey] = "Failed to initialize the application's saved data" as Any
+            dict[NSLocalizedFailureReasonErrorKey] = failureReason as Any
+            dict[NSUnderlyingErrorKey] = error as NSError
+            let wrappedError = NSError(domain: "YOUR_ERROR_DOMAIN", code: 6666, userInfo: dict)
+            print("Unresolved error \(wrappedError), \(wrappedError.userInfo)")
+            abort()
+        }
+        
+        return psc
+    }()
+    
+    
+    lazy var context: NSManagedObjectContext = {
+        let context: NSManagedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.mainQueueConcurrencyType)
+        context.persistentStoreCoordinator = self.persistentStoreCoordinator
+        return context
+    }()
+    
+    
 
     lazy var persistentContainer: NSPersistentContainer = {
         /*
@@ -89,5 +127,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
+    
+    // document url
+    private lazy var documentDir: URL = {
+        let documentDir = FileManager.default.urls(for: FileManager.SearchPathDirectory.documentDirectory, in: FileManager.SearchPathDomainMask.userDomainMask).first
+        return documentDir!
+    }()
 }
 
